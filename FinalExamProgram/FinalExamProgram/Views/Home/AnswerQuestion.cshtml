@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FinalExamProgram.Models.Question>
+
+@{
+    ViewBag.Title = "AnswerQuestion";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            
+            <h2>@ViewBag.Question.QuestionText</h2>
+            <h4>1. @ViewBag.Question.Answer1</h4>
+            <h4>2. @ViewBag.Question.Answer2</h4>
+            <h4>3. @ViewBag.Question.Answer3</h4>
+            <h4>4. @ViewBag.Question.Answer4</h4>
+
+          @using (Html.BeginForm("UpdateScore", "Home", new { QuestionID = ViewBag.Question.QuestionID }, FormMethod.Post))
+          { 
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label for="inputAnswer">Answer: </label>
+                            @Html.TextBox("Answer")
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+          }
+        </div>
+    </div>
+</div>
+
+
